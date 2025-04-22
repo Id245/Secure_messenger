@@ -1,0 +1,4 @@
+/home/idem/my_projects/secure_messenger/build/CMakeFiles/server.dir
+/home/idem/my_projects/secure_messenger/build/CMakeFiles/client.dir
+/home/idem/my_projects/secure_messenger/build/CMakeFiles/edit_cache.dir
+/home/idem/my_projects/secure_messenger/build/CMakeFiles/rebuild_cache.dir

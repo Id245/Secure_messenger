@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/idem/my_projects/secure_messenger/build",
+  "command": "/usr/bin/g++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB  -g -std=gnu++17 -o CMakeFiles/server.dir/server/main.cpp.o -c /home/idem/my_projects/secure_messenger/server/main.cpp",
+  "file": "/home/idem/my_projects/secure_messenger/server/main.cpp",
+  "output": "CMakeFiles/server.dir/server/main.cpp.o"
+},
+{
+  "directory": "/home/idem/my_projects/secure_messenger/build",
+  "command": "/usr/bin/g++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB  -g -std=gnu++17 -o CMakeFiles/client.dir/client/main.cpp.o -c /home/idem/my_projects/secure_messenger/client/main.cpp",
+  "file": "/home/idem/my_projects/secure_messenger/client/main.cpp",
+  "output": "CMakeFiles/client.dir/client/main.cpp.o"
+}
+]
