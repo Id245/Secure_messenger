@@ -1,4 +1,0 @@
-/Users/sadolskii/Documents/hse/aip/Secure_messenger/build/CMakeFiles/server.dir
-/Users/sadolskii/Documents/hse/aip/Secure_messenger/build/CMakeFiles/client.dir
-/Users/sadolskii/Documents/hse/aip/Secure_messenger/build/CMakeFiles/edit_cache.dir
-/Users/sadolskii/Documents/hse/aip/Secure_messenger/build/CMakeFiles/rebuild_cache.dir
