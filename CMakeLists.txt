@@ -46,3 +46,21 @@ target_link_libraries(client
   ${OPENSSL_LIBRARIES}
   pthread
 )
+# ───────── Tests ─────────
+include(FetchContent)
+FetchContent_Declare(
+  doctest
+  GIT_REPOSITORY https://github.com/doctest/doctest.git
+  GIT_TAG        v2.4.11
+)
+FetchContent_MakeAvailable(doctest)
+
+enable_testing()
+
+add_executable(unit_tests
+    tests/test_all.cpp        # ← наш новый файл
+)
+
+target_link_libraries(unit_tests PRIVATE doctest::doctest)
+
+add_test(NAME SecureMessengerTests COMMAND unit_tests)
