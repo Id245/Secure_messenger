@@ -7,6 +7,7 @@
 #include <mutex>
 #include <algorithm>
 #include "../common/message.hpp"
+#include "../common/utils.hpp"          // ← новая строка
 
 namespace asio = boost::asio;
 using asio::ip::tcp;
@@ -99,9 +100,7 @@ private:
                             response.content = "Username already taken. Please reconnect and choose another name.";
 
                             asio::async_write(*ssl_socket, asio::buffer(response.serialize()),
-                                [](const boost::system::error_code& error, std::size_t) {
-                                    // Just let the connection close
-                                });
+                                [](const boost::system::error_code&, std::size_t) {});
 
                             return;
                         }
@@ -172,10 +171,8 @@ private:
                         auto it = user_connections_.find(message.recipient);
 
                         if (it != user_connections_.end()) {
-                            // Recipient found, forward the message
                             asio::async_write(*(it->second), asio::buffer(message.serialize()),
                                 [](const boost::system::error_code& error, std::size_t) {
-                                    // Just log errors, don't block sender
                                     if (error) {
                                         std::cerr << "Failed to deliver message: " << error.message() << "\n";
                                     }
@@ -190,7 +187,6 @@ private:
                     // Client disconnected or error
                     std::cout << "User " << username << " disconnected: " << error.message() << "\n";
 
-                    // Remove user from the list
                     {
                         std::lock_guard<std::mutex> lock(users_mutex_);
                         user_connections_.erase(username);
@@ -207,7 +203,6 @@ private:
         user_list.type = chat::MessageType::LIST;
         user_list.sender = "SERVER";
 
-        // Prepare the user list
         {
             std::lock_guard<std::mutex> lock(users_mutex_);
             for (const auto& user : user_connections_) {
@@ -215,7 +210,6 @@ private:
             }
         }
 
-        // Send to all connected users
         std::string serialized = user_list.serialize();
 
         std::lock_guard<std::mutex> lock(users_mutex_);
@@ -230,15 +224,9 @@ private:
     }
 };
 
-bool file_exists(const std::string& path) {
-    std::ifstream file(path);
-    return file.good();
-}
-
 int main(int argc, char* argv[]) {
     unsigned short port = 8443; // Default SSL port
 
-    // Allow port to be specified via command line
     if (argc >= 2) {
         try {
             port = static_cast<unsigned short>(std::stoi(argv[1]));
@@ -249,7 +237,6 @@ int main(int argc, char* argv[]) {
     }
 
     try {
-        // Check if certificate files exist
         if (!file_exists("server.crt") || !file_exists("server.key")) {
             std::cerr << "Certificate files not found. Please generate them first.\n";
             std::cerr << "Run: openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -nodes -subj '/CN=localhost'\n";
