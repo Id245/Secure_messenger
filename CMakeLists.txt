@@ -58,7 +58,7 @@ FetchContent_MakeAvailable(doctest)
 enable_testing()
 
 add_executable(unit_tests
-    tests/test_all.cpp        # ← наш новый файл
+    tests/test_all.cpp
 )
 
 target_link_libraries(unit_tests PRIVATE doctest::doctest)
