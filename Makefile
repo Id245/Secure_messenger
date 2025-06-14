@@ -62,4 +62,9 @@ clean:
 # Clean and rebuild
 rebuild: clean build
 
-.PHONY: all build generate_certs stop_server run_server run_client client run clean rebuild
+# Run unit tests
+test: build
+	@echo "Running unit tests..."
+	@$(BUILD_DIR)/unit_tests
+
+.PHONY: all build generate_certs stop_server run_server run_client client run clean rebuild test

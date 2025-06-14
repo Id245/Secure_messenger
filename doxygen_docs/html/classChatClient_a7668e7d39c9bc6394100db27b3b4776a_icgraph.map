@@ -1,0 +1,11 @@
+<map id="ChatClient::register_user" name="ChatClient::register_user">
+<area shape="rect" id="Node000001" title="Registers the client&#39;s username with the server." alt="" coords="708,13,891,38"/>
+<area shape="rect" id="Node000002" href="$classChatClient.html#a18a8249c1405b12c73e28013a4c2e552" title="Displays the login screen and prompts the user for a username." alt="" coords="489,5,660,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="694,28,660,28,660,23,694,23"/>
+<area shape="rect" id="Node000003" href="$classChatClient.html#abd3c00262d038234ae082f167c49243e" title="Main input loop for the client." alt="" coords="275,13,441,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="475,28,442,28,442,23,475,23"/>
+<area shape="rect" id="Node000004" href="$classChatClient.html#ae46cfdb49dd12ba7290477dc0fe33c5b" title="Runs the main loop of the client." alt="" coords="108,13,227,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="261,28,227,28,227,23,261,23"/>
+<area shape="rect" id="Node000005" href="$client_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function for the chat client." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

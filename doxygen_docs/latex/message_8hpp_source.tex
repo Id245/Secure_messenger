@@ -1,0 +1,56 @@
+\doxysection{message.\+hpp}
+\hypertarget{message_8hpp_source}{}\label{message_8hpp_source}\index{common/message.hpp@{common/message.hpp}}
+\mbox{\hyperlink{message_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacechat}{chat}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{MessageType}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237ad17455cfcb88a53f1603fb817e09c2d6}{REGISTER}},\ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a298cb25408234de02baf2085803a464a}{LIST}},\ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a63225f19fccb18e7c709f1fa11bc738e}{SELECT}},\ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a90791ed805bd5b00d78527d39d9ef7e4}{MESSAGE}},\ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237afa177138f94a7ea01f549b1aa7893d03}{SYSTEM}}\ \ \ \ \ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structchat_1_1Message}{Message}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{MessageType}}\ \mbox{\hyperlink{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9}{type}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ \mbox{\hyperlink{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456}{sender}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \mbox{\hyperlink{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86}{recipient}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ \mbox{\hyperlink{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0}{content}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8}{users}};\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{structchat_1_1Message_a5ec6a4f537482f7b5d90ba73036e4fcb}{serialize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ nlohmann::json\ j;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ j[\textcolor{stringliteral}{"{}type"{}}]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9}{type}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ j[\textcolor{stringliteral}{"{}sender"{}}]\ =\ \mbox{\hyperlink{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456}{sender}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ j[\textcolor{stringliteral}{"{}recipient"{}}]\ =\ \mbox{\hyperlink{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86}{recipient}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ j[\textcolor{stringliteral}{"{}content"{}}]\ =\ \mbox{\hyperlink{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0}{content}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ j[\textcolor{stringliteral}{"{}users"{}}]\ =\ \mbox{\hyperlink{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8}{users}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j.dump();}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structchat_1_1Message}{Message}}\ \mbox{\hyperlink{structchat_1_1Message_a939aa6d8ed74e2d2d140d7247c7cf251}{deserialize}}(\textcolor{keyword}{const}\ std::string\&\ json\_str)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structchat_1_1Message}{Message}}\ msg;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ j\ =\ nlohmann::json::parse(json\_str);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9}{type}}\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{MessageType}}\textcolor{keyword}{>}(j[\textcolor{stringliteral}{"{}type"{}}].get<\textcolor{keywordtype}{int}>());}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456}{sender}}\ =\ j[\textcolor{stringliteral}{"{}sender"{}}].get<std::string>();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86}{recipient}}\ =\ j[\textcolor{stringliteral}{"{}recipient"{}}].get<std::string>();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0}{content}}\ =\ j[\textcolor{stringliteral}{"{}content"{}}].get<std::string>();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8}{users}}\ =\ j[\textcolor{stringliteral}{"{}users"{}}].get<std::vector<std::string>>();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (std::exception\&\ e)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ parsing\ error}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ msg;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \}\ \ \textcolor{comment}{//\ namespace\ chat}}
+
+\end{DoxyCode}

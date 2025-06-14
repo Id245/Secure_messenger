@@ -1,3 +1,8 @@
+/**
+ * @file utils.hpp
+ * @brief Provides utility functions for the chat application.
+ */
+
 #pragma once
 #include <fstream>
 #include <string>

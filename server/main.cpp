@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @brief Server application for the secure chat.
+ */
+
 #include <boost/asio.hpp>
 #include <boost/asio/ssl.hpp>
 #include <iostream>
@@ -15,16 +20,21 @@ namespace ssl = asio::ssl;
 
 class ChatServer {
 private:
-    asio::io_context& io_context_;
-    ssl::context ssl_context_;
-    tcp::acceptor acceptor_;
-    unsigned short port_;
+    asio::io_context& io_context_;      ///< Boost.Asio I/O context.
+    ssl::context ssl_context_;          ///< Boost.Asio SSL context.
+    tcp::acceptor acceptor_;            ///< Boost.Asio TCP acceptor for incoming connections.
+    unsigned short port_;               ///< Port number the server is listening on.
 
     // Maps usernames to SSL sockets
-    std::map<std::string, std::shared_ptr<ssl::stream<tcp::socket>>> user_connections_;
-    std::mutex users_mutex_;
+    std::map<std::string, std::shared_ptr<ssl::stream<tcp::socket>>> user_connections_; ///< Map of connected users and their SSL sockets.
+    std::mutex users_mutex_;                                                            ///< Mutex to protect access to user_connections_.
 
 public:
+    /**
+     * @brief Constructs a ChatServer object.
+     * @param io_context The Boost.Asio I/O context.
+     * @param port The port number for the server to listen on.
+     */
     ChatServer(asio::io_context& io_context, unsigned short port)
         : io_context_(io_context),
           ssl_context_(ssl::context::tlsv12_server),
@@ -44,12 +54,22 @@ public:
         ssl_context_.use_private_key_file("server.key", ssl::context::pem);
     }
 
+    /**
+     * @brief Starts the chat server.
+     *
+     * Begins accepting incoming client connections.
+     */
     void start() {
         std::cout << "Secure chat server running on port " << port_ << "\n";
         accept_connection();
     }
 
 private:
+    /**
+     * @brief Accepts a new client connection.
+     *
+     * Asynchronously waits for a new connection and initiates the SSL handshake.
+     */
     void accept_connection() {
         auto socket = std::make_shared<tcp::socket>(io_context_);
 
@@ -78,6 +98,13 @@ private:
         });
     }
 
+    /**
+     * @brief Handles the registration process for a new client.
+     *
+     * Reads the registration message from the client, checks for username availability,
+     * and adds the user to the list of connected users.
+     * @param ssl_socket The SSL socket of the newly connected client.
+     */
     void handle_register(std::shared_ptr<ssl::stream<tcp::socket>> ssl_socket) {
         auto buffer = std::make_shared<std::array<char, 1024>>();
 
@@ -135,6 +162,15 @@ private:
             });
     }
 
+    /**
+     * @brief Listens for messages from a specific client.
+     * @param ssl_socket The SSL socket of the client.
+     * @param username The username of the client.
+     *
+     * Asynchronously reads messages from the client. Handles `LIST` requests by sending
+     * the current user list and `MESSAGE` requests by forwarding the message to the
+     * intended recipient. Also handles client disconnection.
+     */
     void listen_for_messages(std::shared_ptr<ssl::stream<tcp::socket>> ssl_socket, const std::string& username) {
         auto buffer = std::make_shared<std::array<char, 4096>>();
 
@@ -198,6 +234,12 @@ private:
             });
     }
 
+    /**
+     * @brief Broadcasts the updated user list to all connected clients.
+     *
+     * Creates a `LIST` message containing all currently registered usernames and sends it
+     * to every connected client.
+     */
     void broadcast_user_list() {
         chat::Message user_list;
         user_list.type = chat::MessageType::LIST;
@@ -224,6 +266,12 @@ private:
     }
 };
 
+/**
+ * @brief Main function for the chat server.
+ * @param argc Argument count.
+ * @param argv Argument vector. Optionally accepts port number as the first argument.
+ * @return 0 on successful execution, 1 on error (e.g., certificate files not found).
+ */
 int main(int argc, char* argv[]) {
     unsigned short port = 8443; // Default SSL port
 

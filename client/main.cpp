@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @brief Client application for the secure chat.
+ */
+
 #include <boost/asio.hpp>
 #include <boost/asio/ssl.hpp>
 #include <iostream>
@@ -16,55 +21,78 @@ namespace ssl = asio::ssl;
 
 // ANSI color codes for terminal formatting
 namespace Color {
-    const std::string RESET   = "\033[0m";
-    const std::string RED     = "\033[31m";
-    const std::string GREEN   = "\033[32m";
-    const std::string YELLOW  = "\033[33m";
-    const std::string BLUE    = "\033[34m";
-    const std::string MAGENTA = "\033[35m";
-    const std::string CYAN    = "\033[36m";
-    const std::string BOLD    = "\033[1m";
+    /** @brief Reset all attributes. */
+    const std::string RESET   = "\\033[0m";
+    /** @brief Red color. */
+    const std::string RED     = "\\033[31m";
+    /** @brief Green color. */
+    const std::string GREEN   = "\\033[32m";
+    /** @brief Yellow color. */
+    const std::string YELLOW  = "\\033[33m";
+    /** @brief Blue color. */
+    const std::string BLUE    = "\\033[34m";
+    /** @brief Magenta color. */
+    const std::string MAGENTA = "\\033[35m";
+    /** @brief Cyan color. */
+    const std::string CYAN    = "\\033[36m";
+    /** @brief Bold text. */
+    const std::string BOLD    = "\\033[1m";
 }
 
+/**
+ * @brief Main class for the chat client.
+ *
+ * Handles connection to the server, sending and receiving messages,
+ * and user interface.
+ */
 class ChatClient {
 private:
     // Connection related
-    asio::io_context& io_context_;
-    ssl::context ssl_context_;
-    std::shared_ptr<ssl::stream<tcp::socket>> ssl_socket_;
-    std::string server_ip_;
-    std::string port_;
-    std::string username_;
+    asio::io_context& io_context_;          ///< Boost.Asio I/O context.
+    ssl::context ssl_context_;              ///< Boost.Asio SSL context.
+    std::shared_ptr<ssl::stream<tcp::socket>> ssl_socket_; ///< SSL socket for communication.
+    std::string server_ip_;                 ///< IP address of the server.
+    std::string port_;                      ///< Port number of the server.
+    std::string username_;                  ///< Username of the client.
 
     // State
+    /**
+     * @brief Represents the current state of the client.
+     */
     enum class ClientState {
-        DISCONNECTED,
-        CONNECTED,
-        REGISTERED,
-        CHATTING
+        DISCONNECTED, ///< Client is not connected to the server.
+        CONNECTED,    ///< Client is connected but not yet registered.
+        REGISTERED,   ///< Client is registered with a username.
+        CHATTING      ///< Client is actively chatting with another user.
     };
 
-    std::atomic<ClientState> state_{ClientState::DISCONNECTED};
-    std::string selected_user_;
-    std::vector<std::string> user_list_;
-    std::mutex user_list_mutex_;
+    std::atomic<ClientState> state_{ClientState::DISCONNECTED}; ///< Current state of the client.
+    std::string selected_user_;                                 ///< Username of the currently selected chat partner.
+    std::vector<std::string> user_list_;                        ///< List of available users.
+    std::mutex user_list_mutex_;                                ///< Mutex to protect access to the user list.
 
     // Message history for each user
-    std::map<std::string, std::vector<std::pair<std::string, std::string>>> chat_history_;
-    std::mutex chat_history_mutex_;
+    std::map<std::string, std::vector<std::pair<std::string, std::string>>> chat_history_; ///< Stores chat history with other users.
+    std::mutex chat_history_mutex_;                                                      ///< Mutex to protect access to chat history.
 
     // Input/output mutex to prevent garbled console
-    std::mutex console_mutex_;
+    std::mutex console_mutex_;                                  ///< Mutex to synchronize console output.
 
     // Flag to indicate if we should quit
-    std::atomic<bool> quit_{false};
+    std::atomic<bool> quit_{false};                             ///< Flag to signal application termination.
 
     // Threads
-    std::thread io_thread_;
-    std::thread read_thread_;
-    std::thread input_thread_;
+    std::thread io_thread_;                                     ///< Thread for Boost.Asio I/O operations.
+    std::thread read_thread_;                                   ///< Thread for reading messages from the server.
+    std::thread input_thread_;                                  ///< Thread for handling user input.
 
 public:
+    /**
+     * @brief Constructs a ChatClient object.
+     * @param io_context The Boost.Asio I/O context.
+     * @param server_ip The IP address of the server.
+     * @param port The port number of the server.
+     */
     ChatClient(asio::io_context& io_context, const std::string& server_ip, const std::string& port)
         : io_context_(io_context),
           ssl_context_(ssl::context::tlsv12_client),
@@ -75,6 +103,11 @@ public:
         ssl_context_.set_verify_mode(ssl::verify_none);
     }
 
+    /**
+     * @brief Destroys the ChatClient object.
+     *
+     * Ensures all threads are joined and resources are cleaned up.
+     */
     ~ChatClient() {
         quit_ = true;
 
@@ -91,6 +124,12 @@ public:
         }
     }
 
+    /**
+     * @brief Starts the chat client.
+     *
+     * Establishes a connection to the server and starts the necessary threads.
+     * @return True if the client started successfully, false otherwise.
+     */
     bool start() {
         try {
             // Connect to server
@@ -116,6 +155,12 @@ public:
         }
     }
 
+    /**
+     * @brief Runs the main loop of the client.
+     *
+     * Initializes the connection if needed, clears the screen, and starts the input loop.
+     * This function will block until the client quits.
+     */
     void run() {
         if (state_ == ClientState::DISCONNECTED) {
             if (!start()) {
@@ -134,10 +179,21 @@ public:
     }
 
 private:
+    /**
+     * @brief Clears the terminal screen.
+     *
+     * Uses ANSI escape codes to clear the screen and move the cursor to the top-left.
+     */
     void clear_screen() {
         std::cout << "\033[2J\033[1;1H";  // ANSI escape code to clear screen
     }
 
+    /**
+     * @brief Prints the header for the chat application to the console.
+     *
+     * Displays the application title and current logged-in user if applicable.
+     * Uses console mutex for thread-safe output.
+     */
     void print_header() {
         std::lock_guard<std::mutex> lock(console_mutex_);
         clear_screen();
@@ -152,6 +208,11 @@ private:
         std::cout << Color::CYAN << "──────────────────────────────────────────────────" << Color::RESET << std::endl;
     }
 
+    /**
+     * @brief Displays the login screen and prompts the user for a username.
+     *
+     * After getting the username, it calls `register_user()` to register with the server.
+     */
     void show_login_screen() {
         print_header();
         std::cout << Color::YELLOW << "Enter your username: " << Color::RESET;
@@ -163,6 +224,13 @@ private:
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
+    /**
+     * @brief Displays the user selection screen.
+     *
+     * Shows a list of available users and allows the client to select one to chat with
+     * or refresh the user list. This loop continues as long as the client is in the
+     * `REGISTERED` state and has not quit.
+     */
     void show_user_selection_screen() {
         while (state_ == ClientState::REGISTERED && !quit_) {
             print_header();
@@ -228,6 +296,13 @@ private:
         }
     }
 
+    /**
+     * @brief Displays the chat screen for the selected user.
+     *
+     * Shows the chat history with the selected user and allows the client to send messages
+     * or go back to the user selection screen. This loop continues as long as the client
+     * is in the `CHATTING` state with the `selected_user_` and has not quit.
+     */
     void show_chat_screen() {
         // Clear any existing input
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -268,6 +343,13 @@ private:
         }
     }
 
+    /**
+     * @brief Main input loop for the client.
+     *
+     * Manages the client's UI state by calling the appropriate screen display function
+     * (`show_login_screen`, `show_user_selection_screen`, `show_chat_screen`) based on the
+     * current `state_`. This loop continues until `quit_` is true.
+     */
     void input_loop() {
         while (!quit_) {
             if (state_ == ClientState::CONNECTED) {
@@ -285,6 +367,11 @@ private:
         }
     }
 
+    /**
+     * @brief Registers the client's username with the server.
+     *
+     * Sends a `REGISTER` message to the server with the current `username_`.
+     */
     void register_user() {
         chat::Message reg_msg;
         reg_msg.type = chat::MessageType::REGISTER;
@@ -298,6 +385,11 @@ private:
         }
     }
 
+    /**
+     * @brief Requests the current list of users from the server.
+     *
+     * Sends a `LIST` message to the server.
+     */
     void request_user_list() {
         chat::Message list_msg;
         list_msg.type = chat::MessageType::LIST;
@@ -311,6 +403,14 @@ private:
         }
     }
 
+    /**
+     * @brief Sends a chat message to the `selected_user_`.
+     * @param content The text content of the message to send.
+     *
+     * If the content or `selected_user_` is empty, the function does nothing.
+     * Otherwise, it creates a `MESSAGE` type `chat::Message`, adds it to the local
+     * `chat_history_`, and sends it to the server.
+     */
     void send_message(const std::string& content) {
         if (content.empty() || selected_user_.empty()) {
             return;
@@ -338,6 +438,14 @@ private:
         }
     }
 
+    /**
+     * @brief Main loop for reading messages from the server.
+     *
+     * Continuously tries to read data from the `ssl_socket_`. If a message is received,
+     * it's deserialized and processed by `process_message()`.
+     * Handles disconnection and read errors. This loop runs until the client state
+     * is `DISCONNECTED` or `quit_` is true.
+     */
     void read_loop() {
         while (state_ != ClientState::DISCONNECTED && !quit_) {
             try {
@@ -374,6 +482,17 @@ private:
         }
     }
 
+    /**
+     * @brief Processes a received message from the server.
+     * @param message The `chat::Message` object received from the server.
+     *
+     * Handles different message types:
+     * - `LIST`: Updates the local `user_list_`, changes state to `REGISTERED` if needed,
+     *           and displays any system message content.
+     * - `MESSAGE`: Adds the message to `chat_history_`. If currently chatting with the
+     *              sender, refreshes the chat screen. Otherwise, displays a notification.
+     * - `SYSTEM`: Displays the system message content.
+     */
     void process_message(const chat::Message& message) {
         if (message.type == chat::MessageType::LIST) {
             // Update user list
@@ -438,6 +557,12 @@ private:
     }
 };
 
+/**
+ * @brief Main function for the chat client.
+ * @param argc Argument count.
+ * @param argv Argument vector. Expects server IP and port as arguments.
+ * @return 0 on successful execution, 1 on error (e.g., incorrect arguments).
+ */
 int main(int argc, char* argv[]) {
     if (argc != 3) {
         std::cerr << "Usage: " << argv[0] << " <server_ip> <port>\n";

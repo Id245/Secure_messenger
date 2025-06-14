@@ -1,0 +1,96 @@
+\doxysection{client/main.cpp File Reference}
+\hypertarget{client_2main_8cpp}{}\label{client_2main_8cpp}\index{client/main.cpp@{client/main.cpp}}
+
+
+Client application for the secure chat.  
+
+
+{\ttfamily \#include $<$boost/asio.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/asio/ssl.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include "{}../common/message.\+hpp"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classChatClient}{Chat\+Client}}
+\begin{DoxyCompactList}\small\item\em Main class for the chat client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceColor}{Color}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{client_2main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function for the chat client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_a5f17e30618539f55680290c9be31967d}{Color\+::\+RESET}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}0m"{}
+\begin{DoxyCompactList}\small\item\em Reset all attributes. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_a29bfda93a0cf8b1ec0fb44cf989d7eb0}{Color\+::\+RED}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}31m"{}
+\begin{DoxyCompactList}\small\item\em Red color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_ad78a2985947b6bba7de20b94cd987808}{Color\+::\+GREEN}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}32m"{}
+\begin{DoxyCompactList}\small\item\em Green color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_a5acf2b5464b7be1be1bdb3635a69861f}{Color\+::\+YELLOW}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}33m"{}
+\begin{DoxyCompactList}\small\item\em Yellow color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_ae0e9bb7492ab063e23ff4ca400371fef}{Color\+::\+BLUE}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}34m"{}
+\begin{DoxyCompactList}\small\item\em Blue color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_a26aa69c9914eaaecde8cae8a41a91aba}{Color\+::\+MAGENTA}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}35m"{}
+\begin{DoxyCompactList}\small\item\em Magenta color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_ab35b1323e3c634d863dfa9c04a53e632}{Color\+::\+CYAN}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}36m"{}
+\begin{DoxyCompactList}\small\item\em Cyan color. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{namespaceColor_adcd188d08b008987de95d62cda2309ad}{Color\+::\+BOLD}} = "{}\textbackslash{}\textbackslash{}033\mbox{[}1m"{}
+\begin{DoxyCompactList}\small\item\em Bold text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Client application for the secure chat. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{client_2main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{client_2main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Main function for the chat client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument count. \\
+\hline
+{\em argv} & Argument vector. Expects server IP and port as arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on successful execution, 1 on error (e.\+g., incorrect arguments). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_2main_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}

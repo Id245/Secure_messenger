@@ -1,0 +1,92 @@
+\doxysection{tests/test\+\_\+all.cpp File Reference}
+\hypertarget{test__all_8cpp}{}\label{test__all_8cpp}\index{tests/test\_all.cpp@{tests/test\_all.cpp}}
+
+
+Contains all unit tests for the chat application.  
+
+
+{\ttfamily \#include "{}doctest/doctest.\+h"{}}\newline
+{\ttfamily \#include "{}../common/message.\+hpp"{}}\newline
+{\ttfamily \#include "{}../common/utils.\+hpp"{}}\newline
+Include dependency graph for test\+\_\+all.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__all_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test__all_8cpp_a623b8690a262536536a43eab2d7df03d}{DOCTEST\+\_\+\+CONFIG\+\_\+\+IMPLEMENT\+\_\+\+WITH\+\_\+\+MAIN}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test__all_8cpp_a6ab803fdc4ce1f1807400322b9dba60c}{TEST\+\_\+\+SUITE}} ("{}Message"{})
+\begin{DoxyCompactList}\small\item\em Test suite for the Message class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test__all_8cpp_a53c5c5dfdb0e92ee0df604cf26ded36b}{TEST\+\_\+\+SUITE}} ("{}Utils"{})
+\begin{DoxyCompactList}\small\item\em Test suite for utility functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains all unit tests for the chat application. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test__all_8cpp_a623b8690a262536536a43eab2d7df03d}\label{test__all_8cpp_a623b8690a262536536a43eab2d7df03d} 
+\index{test\_all.cpp@{test\_all.cpp}!DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN@{DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN}}
+\index{DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN@{DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN}!test\_all.cpp@{test\_all.cpp}}
+\doxysubsubsection{\texorpdfstring{DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN}{DOCTEST\_CONFIG\_IMPLEMENT\_WITH\_MAIN}}
+{\footnotesize\ttfamily \#define DOCTEST\+\_\+\+CONFIG\+\_\+\+IMPLEMENT\+\_\+\+WITH\+\_\+\+MAIN}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__all_8cpp_a6ab803fdc4ce1f1807400322b9dba60c}\label{test__all_8cpp_a6ab803fdc4ce1f1807400322b9dba60c} 
+\index{test\_all.cpp@{test\_all.cpp}!TEST\_SUITE@{TEST\_SUITE}}
+\index{TEST\_SUITE@{TEST\_SUITE}!test\_all.cpp@{test\_all.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_SUITE()}{TEST\_SUITE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+SUITE (\begin{DoxyParamCaption}\item[{"{}Message"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test suite for the Message class. 
+
+Tests the serialization and deserialization round-\/trip of a Message object.
+
+Tests that deserialization handles invalid JSON gracefully.
+
+Tests that the Message\+Type enum is correctly stored as an integer in JSON.Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{test__all_8cpp_a6ab803fdc4ce1f1807400322b9dba60c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__all_8cpp_a53c5c5dfdb0e92ee0df604cf26ded36b}\label{test__all_8cpp_a53c5c5dfdb0e92ee0df604cf26ded36b} 
+\index{test\_all.cpp@{test\_all.cpp}!TEST\_SUITE@{TEST\_SUITE}}
+\index{TEST\_SUITE@{TEST\_SUITE}!test\_all.cpp@{test\_all.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_SUITE()}{TEST\_SUITE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+SUITE (\begin{DoxyParamCaption}\item[{"{}Utils"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test suite for utility functions. 
+
+Helper function to create a temporary file for testing. \begin{DoxyReturn}{Returns}
+The path to the created temporary file.
+\end{DoxyReturn}
+Tests the file\+\_\+exists function with an existing file.
+
+Tests the file\+\_\+exists function with a non-\/existent file.Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{test__all_8cpp_a53c5c5dfdb0e92ee0df604cf26ded36b_cgraph}
+\end{center}
+\end{figure}

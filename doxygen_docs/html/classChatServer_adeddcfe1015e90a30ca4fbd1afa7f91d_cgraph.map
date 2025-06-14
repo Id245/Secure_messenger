@@ -1,0 +1,7 @@
+<map id="ChatServer::handle_register" name="ChatServer::handle_register">
+<area shape="rect" id="Node000001" title="Handles the registration process for a new client." alt="" coords="5,23,152,63"/>
+<area shape="rect" id="Node000002" href="$structchat_1_1Message.html#a939aa6d8ed74e2d2d140d7247c7cf251" title="Deserializes a Message object from a JSON string." alt="" coords="200,5,395,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,32,186,28,187,34,153,37"/>
+<area shape="rect" id="Node000003" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="208,55,387,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,49,195,53,194,59,152,54"/>
+</map>

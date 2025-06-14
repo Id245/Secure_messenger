@@ -1,0 +1,5 @@
+<map id="ChatServer::broadcast_user_list" name="ChatServer::broadcast_user_list">
+<area shape="rect" id="Node000001" title="Broadcasts the updated user list to all connected clients." alt="" coords="5,5,172,45"/>
+<area shape="rect" id="Node000002" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="220,13,399,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+</map>

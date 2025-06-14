@@ -1,0 +1,696 @@
+\doxysection{Chat\+Client Class Reference}
+\hypertarget{classChatClient}{}\label{classChatClient}\index{ChatClient@{ChatClient}}
+
+
+Main class for the chat client.  
+
+
+
+
+Collaboration diagram for Chat\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classChatClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChatClient_aa48eb9b1b69284ee46b8c1ccdf91a7ed}{Chat\+Client}} (asio\+::io\+\_\+context \&io\+\_\+context, const std\+::string \&server\+\_\+ip, const std\+::string \&port)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classChatClient}{Chat\+Client} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChatClient_aa5e3fa84e54a1107313f3e3c559df6ea}{\texorpdfstring{$\sim$}{\string~}\+Chat\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{classChatClient}{Chat\+Client} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classChatClient_a6fc601e509ff9eb0f0f0db2bca0dc1f9}{start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the chat client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_ae46cfdb49dd12ba7290477dc0fe33c5b}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the main loop of the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008}{Client\+State}} \{ \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008a99c8ce56e7ab246445d3b134724428f3}{DISCONNECTED}}
+, \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008aa5afd6edd5336d91316964e493936858}{CONNECTED}}
+, \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008ac1a4d3eaa5e512053eb2894e21c4a2bf}{REGISTERED}}
+, \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008a9b86cebc7ff2878fe7f455334c69f2ed}{CHATTING}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the current state of the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classChatClient_ab33e117990e309c5a633b79ff9c4bab9}{clear\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Clears the terminal screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_a9f131fab526395621d8e78dbf78148a7}{print\+\_\+header}} ()
+\begin{DoxyCompactList}\small\item\em Prints the header for the chat application to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_a18a8249c1405b12c73e28013a4c2e552}{show\+\_\+login\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Displays the login screen and prompts the user for a username. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_abbfe2406e21844b758ad25b70f47b2f5}{show\+\_\+user\+\_\+selection\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Displays the user selection screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_a3d61ab26b208ce4a167033faf55400b2}{show\+\_\+chat\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Displays the chat screen for the selected user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_abd3c00262d038234ae082f167c49243e}{input\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em Main input loop for the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_a7668e7d39c9bc6394100db27b3b4776a}{register\+\_\+user}} ()
+\begin{DoxyCompactList}\small\item\em Registers the client\textquotesingle{}s username with the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_ace42ce168ab039d2ccd584f3fd2aa1ab}{request\+\_\+user\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em Requests the current list of users from the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_aa56e2311bc900a982d61e16bb2697b84}{send\+\_\+message}} (const std\+::string \&content)
+\begin{DoxyCompactList}\small\item\em Sends a chat message to the {\ttfamily selected\+\_\+user\+\_\+}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_a2f636eb6e04c94fc9481ec51132e0ca0}{read\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em Main loop for reading messages from the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatClient_aceb2e3089705fcdd4981bdb2f0747401}{process\+\_\+message}} (const \mbox{\hyperlink{structchat_1_1Message}{chat\+::\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Processes a received message from the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+asio\+::io\+\_\+context \& \mbox{\hyperlink{classChatClient_a6316da8fcc09c9df8a40b0d8366ea0c2}{io\+\_\+context\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boost.\+Asio I/O context. \end{DoxyCompactList}\item 
+ssl\+::context \mbox{\hyperlink{classChatClient_ab2e12ef4a23a425510d07bb3e74fd527}{ssl\+\_\+context\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boost.\+Asio SSL context. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$ \mbox{\hyperlink{classChatClient_abf2d0668047be28ed8cbd5bc5af81d84}{ssl\+\_\+socket\+\_\+}}
+\begin{DoxyCompactList}\small\item\em SSL socket for communication. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatClient_a8bf17182fb8b626b57cd092e1d605f79}{server\+\_\+ip\+\_\+}}
+\begin{DoxyCompactList}\small\item\em IP address of the server. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatClient_a83618dea6d4390c4b6694404485178b1}{port\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Port number of the server. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatClient_ac6acab25ffc9473852b5f1461cfcc382}{username\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Username of the client. \end{DoxyCompactList}\item 
+std\+::atomic$<$ \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008}{Client\+State}} $>$ \mbox{\hyperlink{classChatClient_a4b61572a7bb8661916e37cd94b51ba33}{state\+\_\+}} \{\mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008a99c8ce56e7ab246445d3b134724428f3}{Client\+State\+::\+DISCONNECTED}}\}
+\begin{DoxyCompactList}\small\item\em Current state of the client. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatClient_a968b4618db20ce75cea93e08766e53a0}{selected\+\_\+user\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Username of the currently selected chat partner. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classChatClient_a5546ff2be19cb6c302368a1221d3f30d}{user\+\_\+list\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of available users. \end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classChatClient_a2cca8bddc0cbf4f473dde1fced06f06a}{user\+\_\+list\+\_\+mutex\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Mutex to protect access to the user list. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ $>$ \mbox{\hyperlink{classChatClient_a7887355017120de32d28eaeb62f7ab43}{chat\+\_\+history\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Stores chat history with other users. \end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classChatClient_aa490edaf53d512dcd3f2f027f94e8253}{chat\+\_\+history\+\_\+mutex\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Mutex to protect access to chat history. \end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classChatClient_aec6d740395ad429cb3d92856243b53d8}{console\+\_\+mutex\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Mutex to synchronize console output. \end{DoxyCompactList}\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classChatClient_a6e85fc89fbe1bdcddb17e8913c6f46fd}{quit\+\_\+}} \{false\}
+\begin{DoxyCompactList}\small\item\em Flag to signal application termination. \end{DoxyCompactList}\item 
+std\+::thread \mbox{\hyperlink{classChatClient_a7b7af5b2f91021373cc23fc6959a0f64}{io\+\_\+thread\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Thread for Boost.\+Asio I/O operations. \end{DoxyCompactList}\item 
+std\+::thread \mbox{\hyperlink{classChatClient_a0e40a2548cd267cf556d5aae30cb43f4}{read\+\_\+thread\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Thread for reading messages from the server. \end{DoxyCompactList}\item 
+std\+::thread \mbox{\hyperlink{classChatClient_abf9e48bfc95644e736a18d50e918fdc3}{input\+\_\+thread\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Thread for handling user input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class for the chat client. 
+
+Handles connection to the server, sending and receiving messages, and user interface. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classChatClient_abcdcbef09a63d3fe53e3296dae774008}\label{classChatClient_abcdcbef09a63d3fe53e3296dae774008} 
+\index{ChatClient@{ChatClient}!ClientState@{ClientState}}
+\index{ClientState@{ClientState}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{ClientState}{ClientState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008}{Chat\+Client\+::\+Client\+State}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [private]}}
+
+
+
+Represents the current state of the client. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISCONNECTED@{DISCONNECTED}!ChatClient@{ChatClient}}\index{ChatClient@{ChatClient}!DISCONNECTED@{DISCONNECTED}}}\Hypertarget{classChatClient_abcdcbef09a63d3fe53e3296dae774008a99c8ce56e7ab246445d3b134724428f3}\label{classChatClient_abcdcbef09a63d3fe53e3296dae774008a99c8ce56e7ab246445d3b134724428f3} 
+DISCONNECTED&Client is not connected to the server. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONNECTED@{CONNECTED}!ChatClient@{ChatClient}}\index{ChatClient@{ChatClient}!CONNECTED@{CONNECTED}}}\Hypertarget{classChatClient_abcdcbef09a63d3fe53e3296dae774008aa5afd6edd5336d91316964e493936858}\label{classChatClient_abcdcbef09a63d3fe53e3296dae774008aa5afd6edd5336d91316964e493936858} 
+CONNECTED&Client is connected but not yet registered. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REGISTERED@{REGISTERED}!ChatClient@{ChatClient}}\index{ChatClient@{ChatClient}!REGISTERED@{REGISTERED}}}\Hypertarget{classChatClient_abcdcbef09a63d3fe53e3296dae774008ac1a4d3eaa5e512053eb2894e21c4a2bf}\label{classChatClient_abcdcbef09a63d3fe53e3296dae774008ac1a4d3eaa5e512053eb2894e21c4a2bf} 
+REGISTERED&Client is registered with a username. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHATTING@{CHATTING}!ChatClient@{ChatClient}}\index{ChatClient@{ChatClient}!CHATTING@{CHATTING}}}\Hypertarget{classChatClient_abcdcbef09a63d3fe53e3296dae774008a9b86cebc7ff2878fe7f455334c69f2ed}\label{classChatClient_abcdcbef09a63d3fe53e3296dae774008a9b86cebc7ff2878fe7f455334c69f2ed} 
+CHATTING&Client is actively chatting with another user. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classChatClient_aa48eb9b1b69284ee46b8c1ccdf91a7ed}\label{classChatClient_aa48eb9b1b69284ee46b8c1ccdf91a7ed} 
+\index{ChatClient@{ChatClient}!ChatClient@{ChatClient}}
+\index{ChatClient@{ChatClient}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{ChatClient()}{ChatClient()}}
+{\footnotesize\ttfamily Chat\+Client\+::\+Chat\+Client (\begin{DoxyParamCaption}\item[{asio\+::io\+\_\+context \&}]{io\+\_\+context,  }\item[{const std\+::string \&}]{server\+\_\+ip,  }\item[{const std\+::string \&}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{classChatClient}{Chat\+Client} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io\+\_\+context} & The Boost.\+Asio I/O context. \\
+\hline
+{\em server\+\_\+ip} & The IP address of the server. \\
+\hline
+{\em port} & The port number of the server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classChatClient_aa5e3fa84e54a1107313f3e3c559df6ea}\label{classChatClient_aa5e3fa84e54a1107313f3e3c559df6ea} 
+\index{ChatClient@{ChatClient}!````~ChatClient@{\texorpdfstring{$\sim$}{\string~}ChatClient}}
+\index{````~ChatClient@{\texorpdfstring{$\sim$}{\string~}ChatClient}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ChatClient()}{\string~ChatClient()}}
+{\footnotesize\ttfamily Chat\+Client\+::\texorpdfstring{$\sim$}{\string~}\+Chat\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroys the \doxylink{classChatClient}{Chat\+Client} object. 
+
+Ensures all threads are joined and resources are cleaned up. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classChatClient_ab33e117990e309c5a633b79ff9c4bab9}\label{classChatClient_ab33e117990e309c5a633b79ff9c4bab9} 
+\index{ChatClient@{ChatClient}!clear\_screen@{clear\_screen}}
+\index{clear\_screen@{clear\_screen}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{clear\_screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void Chat\+Client\+::clear\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Clears the terminal screen. 
+
+Uses ANSI escape codes to clear the screen and move the cursor to the top-\/left. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_ab33e117990e309c5a633b79ff9c4bab9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_abd3c00262d038234ae082f167c49243e}\label{classChatClient_abd3c00262d038234ae082f167c49243e} 
+\index{ChatClient@{ChatClient}!input\_loop@{input\_loop}}
+\index{input\_loop@{input\_loop}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{input\_loop()}{input\_loop()}}
+{\footnotesize\ttfamily void Chat\+Client\+::input\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Main input loop for the client. 
+
+Manages the client\textquotesingle{}s UI state by calling the appropriate screen display function ({\ttfamily show\+\_\+login\+\_\+screen}, {\ttfamily show\+\_\+user\+\_\+selection\+\_\+screen}, {\ttfamily show\+\_\+chat\+\_\+screen}) based on the current {\ttfamily state\+\_\+}. This loop continues until {\ttfamily quit\+\_\+} is true. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_abd3c00262d038234ae082f167c49243e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_abd3c00262d038234ae082f167c49243e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a9f131fab526395621d8e78dbf78148a7}\label{classChatClient_a9f131fab526395621d8e78dbf78148a7} 
+\index{ChatClient@{ChatClient}!print\_header@{print\_header}}
+\index{print\_header@{print\_header}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{print\_header()}{print\_header()}}
+{\footnotesize\ttfamily void Chat\+Client\+::print\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Prints the header for the chat application to the console. 
+
+Displays the application title and current logged-\/in user if applicable. Uses console mutex for thread-\/safe output. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a9f131fab526395621d8e78dbf78148a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a9f131fab526395621d8e78dbf78148a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_aceb2e3089705fcdd4981bdb2f0747401}\label{classChatClient_aceb2e3089705fcdd4981bdb2f0747401} 
+\index{ChatClient@{ChatClient}!process\_message@{process\_message}}
+\index{process\_message@{process\_message}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{process\_message()}{process\_message()}}
+{\footnotesize\ttfamily void Chat\+Client\+::process\+\_\+message (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structchat_1_1Message}{chat\+::\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Processes a received message from the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The {\ttfamily \doxylink{structchat_1_1Message}{chat\+::\+Message}} object received from the server.\\
+\hline
+\end{DoxyParams}
+Handles different message types\+:
+\begin{DoxyItemize}
+\item {\ttfamily LIST}\+: Updates the local {\ttfamily user\+\_\+list\+\_\+}, changes state to {\ttfamily REGISTERED} if needed, and displays any system message content.
+\item {\ttfamily MESSAGE}\+: Adds the message to {\ttfamily chat\+\_\+history\+\_\+}. If currently chatting with the sender, refreshes the chat screen. Otherwise, displays a notification.
+\item {\ttfamily SYSTEM}\+: Displays the system message content. 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_aceb2e3089705fcdd4981bdb2f0747401_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_aceb2e3089705fcdd4981bdb2f0747401_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a2f636eb6e04c94fc9481ec51132e0ca0}\label{classChatClient_a2f636eb6e04c94fc9481ec51132e0ca0} 
+\index{ChatClient@{ChatClient}!read\_loop@{read\_loop}}
+\index{read\_loop@{read\_loop}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{read\_loop()}{read\_loop()}}
+{\footnotesize\ttfamily void Chat\+Client\+::read\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Main loop for reading messages from the server. 
+
+Continuously tries to read data from the {\ttfamily ssl\+\_\+socket\+\_\+}. If a message is received, it\textquotesingle{}s deserialized and processed by {\ttfamily \doxylink{classChatClient_aceb2e3089705fcdd4981bdb2f0747401}{process\+\_\+message()}}. Handles disconnection and read errors. This loop runs until the client state is {\ttfamily DISCONNECTED} or {\ttfamily quit\+\_\+} is true. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a2f636eb6e04c94fc9481ec51132e0ca0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a2f636eb6e04c94fc9481ec51132e0ca0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a7668e7d39c9bc6394100db27b3b4776a}\label{classChatClient_a7668e7d39c9bc6394100db27b3b4776a} 
+\index{ChatClient@{ChatClient}!register\_user@{register\_user}}
+\index{register\_user@{register\_user}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{register\_user()}{register\_user()}}
+{\footnotesize\ttfamily void Chat\+Client\+::register\+\_\+user (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Registers the client\textquotesingle{}s username with the server. 
+
+Sends a {\ttfamily REGISTER} message to the server with the current {\ttfamily username\+\_\+}. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a7668e7d39c9bc6394100db27b3b4776a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a7668e7d39c9bc6394100db27b3b4776a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_ace42ce168ab039d2ccd584f3fd2aa1ab}\label{classChatClient_ace42ce168ab039d2ccd584f3fd2aa1ab} 
+\index{ChatClient@{ChatClient}!request\_user\_list@{request\_user\_list}}
+\index{request\_user\_list@{request\_user\_list}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{request\_user\_list()}{request\_user\_list()}}
+{\footnotesize\ttfamily void Chat\+Client\+::request\+\_\+user\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Requests the current list of users from the server. 
+
+Sends a {\ttfamily LIST} message to the server. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_ace42ce168ab039d2ccd584f3fd2aa1ab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_ace42ce168ab039d2ccd584f3fd2aa1ab_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_ae46cfdb49dd12ba7290477dc0fe33c5b}\label{classChatClient_ae46cfdb49dd12ba7290477dc0fe33c5b} 
+\index{ChatClient@{ChatClient}!run@{run}}
+\index{run@{run}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Chat\+Client\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Runs the main loop of the client. 
+
+Initializes the connection if needed, clears the screen, and starts the input loop. This function will block until the client quits. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_ae46cfdb49dd12ba7290477dc0fe33c5b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classChatClient_ae46cfdb49dd12ba7290477dc0fe33c5b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_aa56e2311bc900a982d61e16bb2697b84}\label{classChatClient_aa56e2311bc900a982d61e16bb2697b84} 
+\index{ChatClient@{ChatClient}!send\_message@{send\_message}}
+\index{send\_message@{send\_message}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{send\_message()}{send\_message()}}
+{\footnotesize\ttfamily void Chat\+Client\+::send\+\_\+message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sends a chat message to the {\ttfamily selected\+\_\+user\+\_\+}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The text content of the message to send.\\
+\hline
+\end{DoxyParams}
+If the content or {\ttfamily selected\+\_\+user\+\_\+} is empty, the function does nothing. Otherwise, it creates a {\ttfamily MESSAGE} type {\ttfamily \doxylink{structchat_1_1Message}{chat\+::\+Message}}, adds it to the local {\ttfamily chat\+\_\+history\+\_\+}, and sends it to the server. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_aa56e2311bc900a982d61e16bb2697b84_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_aa56e2311bc900a982d61e16bb2697b84_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a3d61ab26b208ce4a167033faf55400b2}\label{classChatClient_a3d61ab26b208ce4a167033faf55400b2} 
+\index{ChatClient@{ChatClient}!show\_chat\_screen@{show\_chat\_screen}}
+\index{show\_chat\_screen@{show\_chat\_screen}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{show\_chat\_screen()}{show\_chat\_screen()}}
+{\footnotesize\ttfamily void Chat\+Client\+::show\+\_\+chat\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Displays the chat screen for the selected user. 
+
+Shows the chat history with the selected user and allows the client to send messages or go back to the user selection screen. This loop continues as long as the client is in the {\ttfamily CHATTING} state with the {\ttfamily selected\+\_\+user\+\_\+} and has not quit. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a3d61ab26b208ce4a167033faf55400b2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a3d61ab26b208ce4a167033faf55400b2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a18a8249c1405b12c73e28013a4c2e552}\label{classChatClient_a18a8249c1405b12c73e28013a4c2e552} 
+\index{ChatClient@{ChatClient}!show\_login\_screen@{show\_login\_screen}}
+\index{show\_login\_screen@{show\_login\_screen}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{show\_login\_screen()}{show\_login\_screen()}}
+{\footnotesize\ttfamily void Chat\+Client\+::show\+\_\+login\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Displays the login screen and prompts the user for a username. 
+
+After getting the username, it calls {\ttfamily \doxylink{classChatClient_a7668e7d39c9bc6394100db27b3b4776a}{register\+\_\+user()}} to register with the server. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a18a8249c1405b12c73e28013a4c2e552_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a18a8249c1405b12c73e28013a4c2e552_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_abbfe2406e21844b758ad25b70f47b2f5}\label{classChatClient_abbfe2406e21844b758ad25b70f47b2f5} 
+\index{ChatClient@{ChatClient}!show\_user\_selection\_screen@{show\_user\_selection\_screen}}
+\index{show\_user\_selection\_screen@{show\_user\_selection\_screen}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{show\_user\_selection\_screen()}{show\_user\_selection\_screen()}}
+{\footnotesize\ttfamily void Chat\+Client\+::show\+\_\+user\+\_\+selection\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Displays the user selection screen. 
+
+Shows a list of available users and allows the client to select one to chat with or refresh the user list. This loop continues as long as the client is in the {\ttfamily REGISTERED} state and has not quit. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_abbfe2406e21844b758ad25b70f47b2f5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_abbfe2406e21844b758ad25b70f47b2f5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatClient_a6fc601e509ff9eb0f0f0db2bca0dc1f9}\label{classChatClient_a6fc601e509ff9eb0f0f0db2bca0dc1f9} 
+\index{ChatClient@{ChatClient}!start@{start}}
+\index{start@{start}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Chat\+Client\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Starts the chat client. 
+
+Establishes a connection to the server and starts the necessary threads. \begin{DoxyReturn}{Returns}
+True if the client started successfully, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a6fc601e509ff9eb0f0f0db2bca0dc1f9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatClient_a6fc601e509ff9eb0f0f0db2bca0dc1f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classChatClient_a7887355017120de32d28eaeb62f7ab43}\label{classChatClient_a7887355017120de32d28eaeb62f7ab43} 
+\index{ChatClient@{ChatClient}!chat\_history\_@{chat\_history\_}}
+\index{chat\_history\_@{chat\_history\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{chat\_history\_}{chat\_history\_}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$ $>$ Chat\+Client\+::chat\+\_\+history\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores chat history with other users. 
+
+\Hypertarget{classChatClient_aa490edaf53d512dcd3f2f027f94e8253}\label{classChatClient_aa490edaf53d512dcd3f2f027f94e8253} 
+\index{ChatClient@{ChatClient}!chat\_history\_mutex\_@{chat\_history\_mutex\_}}
+\index{chat\_history\_mutex\_@{chat\_history\_mutex\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{chat\_history\_mutex\_}{chat\_history\_mutex\_}}
+{\footnotesize\ttfamily std\+::mutex Chat\+Client\+::chat\+\_\+history\+\_\+mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mutex to protect access to chat history. 
+
+\Hypertarget{classChatClient_aec6d740395ad429cb3d92856243b53d8}\label{classChatClient_aec6d740395ad429cb3d92856243b53d8} 
+\index{ChatClient@{ChatClient}!console\_mutex\_@{console\_mutex\_}}
+\index{console\_mutex\_@{console\_mutex\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{console\_mutex\_}{console\_mutex\_}}
+{\footnotesize\ttfamily std\+::mutex Chat\+Client\+::console\+\_\+mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mutex to synchronize console output. 
+
+\Hypertarget{classChatClient_abf9e48bfc95644e736a18d50e918fdc3}\label{classChatClient_abf9e48bfc95644e736a18d50e918fdc3} 
+\index{ChatClient@{ChatClient}!input\_thread\_@{input\_thread\_}}
+\index{input\_thread\_@{input\_thread\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{input\_thread\_}{input\_thread\_}}
+{\footnotesize\ttfamily std\+::thread Chat\+Client\+::input\+\_\+thread\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread for handling user input. 
+
+\Hypertarget{classChatClient_a6316da8fcc09c9df8a40b0d8366ea0c2}\label{classChatClient_a6316da8fcc09c9df8a40b0d8366ea0c2} 
+\index{ChatClient@{ChatClient}!io\_context\_@{io\_context\_}}
+\index{io\_context\_@{io\_context\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{io\_context\_}{io\_context\_}}
+{\footnotesize\ttfamily asio\+::io\+\_\+context\& Chat\+Client\+::io\+\_\+context\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boost.\+Asio I/O context. 
+
+\Hypertarget{classChatClient_a7b7af5b2f91021373cc23fc6959a0f64}\label{classChatClient_a7b7af5b2f91021373cc23fc6959a0f64} 
+\index{ChatClient@{ChatClient}!io\_thread\_@{io\_thread\_}}
+\index{io\_thread\_@{io\_thread\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{io\_thread\_}{io\_thread\_}}
+{\footnotesize\ttfamily std\+::thread Chat\+Client\+::io\+\_\+thread\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread for Boost.\+Asio I/O operations. 
+
+\Hypertarget{classChatClient_a83618dea6d4390c4b6694404485178b1}\label{classChatClient_a83618dea6d4390c4b6694404485178b1} 
+\index{ChatClient@{ChatClient}!port\_@{port\_}}
+\index{port\_@{port\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{port\_}{port\_}}
+{\footnotesize\ttfamily std\+::string Chat\+Client\+::port\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Port number of the server. 
+
+\Hypertarget{classChatClient_a6e85fc89fbe1bdcddb17e8913c6f46fd}\label{classChatClient_a6e85fc89fbe1bdcddb17e8913c6f46fd} 
+\index{ChatClient@{ChatClient}!quit\_@{quit\_}}
+\index{quit\_@{quit\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{quit\_}{quit\_}}
+{\footnotesize\ttfamily std\+::atomic$<$bool$>$ Chat\+Client\+::quit\+\_\+ \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to signal application termination. 
+
+\Hypertarget{classChatClient_a0e40a2548cd267cf556d5aae30cb43f4}\label{classChatClient_a0e40a2548cd267cf556d5aae30cb43f4} 
+\index{ChatClient@{ChatClient}!read\_thread\_@{read\_thread\_}}
+\index{read\_thread\_@{read\_thread\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{read\_thread\_}{read\_thread\_}}
+{\footnotesize\ttfamily std\+::thread Chat\+Client\+::read\+\_\+thread\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread for reading messages from the server. 
+
+\Hypertarget{classChatClient_a968b4618db20ce75cea93e08766e53a0}\label{classChatClient_a968b4618db20ce75cea93e08766e53a0} 
+\index{ChatClient@{ChatClient}!selected\_user\_@{selected\_user\_}}
+\index{selected\_user\_@{selected\_user\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{selected\_user\_}{selected\_user\_}}
+{\footnotesize\ttfamily std\+::string Chat\+Client\+::selected\+\_\+user\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Username of the currently selected chat partner. 
+
+\Hypertarget{classChatClient_a8bf17182fb8b626b57cd092e1d605f79}\label{classChatClient_a8bf17182fb8b626b57cd092e1d605f79} 
+\index{ChatClient@{ChatClient}!server\_ip\_@{server\_ip\_}}
+\index{server\_ip\_@{server\_ip\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{server\_ip\_}{server\_ip\_}}
+{\footnotesize\ttfamily std\+::string Chat\+Client\+::server\+\_\+ip\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+IP address of the server. 
+
+\Hypertarget{classChatClient_ab2e12ef4a23a425510d07bb3e74fd527}\label{classChatClient_ab2e12ef4a23a425510d07bb3e74fd527} 
+\index{ChatClient@{ChatClient}!ssl\_context\_@{ssl\_context\_}}
+\index{ssl\_context\_@{ssl\_context\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{ssl\_context\_}{ssl\_context\_}}
+{\footnotesize\ttfamily ssl\+::context Chat\+Client\+::ssl\+\_\+context\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boost.\+Asio SSL context. 
+
+\Hypertarget{classChatClient_abf2d0668047be28ed8cbd5bc5af81d84}\label{classChatClient_abf2d0668047be28ed8cbd5bc5af81d84} 
+\index{ChatClient@{ChatClient}!ssl\_socket\_@{ssl\_socket\_}}
+\index{ssl\_socket\_@{ssl\_socket\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{ssl\_socket\_}{ssl\_socket\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ssl\+::stream$<$tcp\+::socket$>$ $>$ Chat\+Client\+::ssl\+\_\+socket\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+SSL socket for communication. 
+
+\Hypertarget{classChatClient_a4b61572a7bb8661916e37cd94b51ba33}\label{classChatClient_a4b61572a7bb8661916e37cd94b51ba33} 
+\index{ChatClient@{ChatClient}!state\_@{state\_}}
+\index{state\_@{state\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily std\+::atomic$<$\mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008}{Client\+State}}$>$ Chat\+Client\+::state\+\_\+ \{\mbox{\hyperlink{classChatClient_abcdcbef09a63d3fe53e3296dae774008a99c8ce56e7ab246445d3b134724428f3}{Client\+State\+::\+DISCONNECTED}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current state of the client. 
+
+\Hypertarget{classChatClient_a5546ff2be19cb6c302368a1221d3f30d}\label{classChatClient_a5546ff2be19cb6c302368a1221d3f30d} 
+\index{ChatClient@{ChatClient}!user\_list\_@{user\_list\_}}
+\index{user\_list\_@{user\_list\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{user\_list\_}{user\_list\_}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Chat\+Client\+::user\+\_\+list\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of available users. 
+
+\Hypertarget{classChatClient_a2cca8bddc0cbf4f473dde1fced06f06a}\label{classChatClient_a2cca8bddc0cbf4f473dde1fced06f06a} 
+\index{ChatClient@{ChatClient}!user\_list\_mutex\_@{user\_list\_mutex\_}}
+\index{user\_list\_mutex\_@{user\_list\_mutex\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{user\_list\_mutex\_}{user\_list\_mutex\_}}
+{\footnotesize\ttfamily std\+::mutex Chat\+Client\+::user\+\_\+list\+\_\+mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mutex to protect access to the user list. 
+
+\Hypertarget{classChatClient_ac6acab25ffc9473852b5f1461cfcc382}\label{classChatClient_ac6acab25ffc9473852b5f1461cfcc382} 
+\index{ChatClient@{ChatClient}!username\_@{username\_}}
+\index{username\_@{username\_}!ChatClient@{ChatClient}}
+\doxysubsubsection{\texorpdfstring{username\_}{username\_}}
+{\footnotesize\ttfamily std\+::string Chat\+Client\+::username\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Username of the client. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+client/\mbox{\hyperlink{client_2main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

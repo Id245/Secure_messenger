@@ -1,0 +1,54 @@
+\doxysection{chat Namespace Reference}
+\hypertarget{namespacechat}{}\label{namespacechat}\index{chat@{chat}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structchat_1_1Message}{Message}}
+\begin{DoxyCompactList}\small\item\em Represents a chat message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{Message\+Type}} \{ \newline
+\mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237ad17455cfcb88a53f1603fb817e09c2d6}{REGISTER}}
+, \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a298cb25408234de02baf2085803a464a}{LIST}}
+, \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a63225f19fccb18e7c709f1fa11bc738e}{SELECT}}
+, \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237a90791ed805bd5b00d78527d39d9ef7e4}{MESSAGE}}
+, \newline
+\mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237afa177138f94a7ea01f549b1aa7893d03}{SYSTEM}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines the type of a chat message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237} 
+\index{chat@{chat}!MessageType@{MessageType}}
+\index{MessageType@{MessageType}!chat@{chat}}
+\doxysubsubsection{\texorpdfstring{MessageType}{MessageType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{chat\+::\+Message\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Defines the type of a chat message. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REGISTER@{REGISTER}!chat@{chat}}\index{chat@{chat}!REGISTER@{REGISTER}}}\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237ad17455cfcb88a53f1603fb817e09c2d6}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237ad17455cfcb88a53f1603fb817e09c2d6} 
+REGISTER&\doxylink{structchat_1_1Message}{Message} to register a username with the server. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIST@{LIST}!chat@{chat}}\index{chat@{chat}!LIST@{LIST}}}\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237a298cb25408234de02baf2085803a464a}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237a298cb25408234de02baf2085803a464a} 
+LIST&\doxylink{structchat_1_1Message}{Message} to request the list of connected users. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!chat@{chat}}\index{chat@{chat}!SELECT@{SELECT}}}\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237a63225f19fccb18e7c709f1fa11bc738e}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237a63225f19fccb18e7c709f1fa11bc738e} 
+SELECT&\doxylink{structchat_1_1Message}{Message} to select a user to chat with. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MESSAGE@{MESSAGE}!chat@{chat}}\index{chat@{chat}!MESSAGE@{MESSAGE}}}\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237a90791ed805bd5b00d78527d39d9ef7e4}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237a90791ed805bd5b00d78527d39d9ef7e4} 
+MESSAGE&A standard chat message. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSTEM@{SYSTEM}!chat@{chat}}\index{chat@{chat}!SYSTEM@{SYSTEM}}}\Hypertarget{namespacechat_ad6792c32ee9e0931967e81e5520aa237afa177138f94a7ea01f549b1aa7893d03}\label{namespacechat_ad6792c32ee9e0931967e81e5520aa237afa177138f94a7ea01f549b1aa7893d03} 
+SYSTEM&A system notification or error message. \\
+\hline
+
+\end{DoxyEnumFields}

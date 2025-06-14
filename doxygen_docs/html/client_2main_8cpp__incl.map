@@ -1,0 +1,29 @@
+<map id="client/main.cpp" name="client/main.cpp">
+<area shape="rect" id="Node000001" title="Client application for the secure chat." alt="" coords="643,5,765,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,123,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="643,27,423,48,137,81,136,76,423,43,642,22"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="147,79,285,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="643,31,299,81,298,75,642,26"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="309,79,389,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="648,33,403,82,402,77,646,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="416,152,475,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="643,28,532,47,484,62,466,71,454,80,446,93,443,108,443,139,437,139,437,107,441,91,450,77,463,66,482,57,531,42,642,23"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="853,152,915,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="766,17,852,20,951,29,1038,47,1071,60,1094,77,1104,98,1100,116,1083,130,1057,141,993,155,930,163,929,158,993,150,1056,136,1080,125,1095,113,1099,98,1090,80,1069,65,1037,52,950,34,852,25,765,22"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="672,79,736,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="707,31,707,65,701,65,701,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="760,79,824,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="720,29,769,68,765,72,716,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="848,79,915,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="733,28,841,71,839,76,732,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="939,79,989,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="749,28,926,76,925,81,748,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1013,79,1080,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="766,28,1001,76,999,81,765,33"/>
+<area shape="rect" id="Node000012" href="$message_8hpp.html" title="Defines the message structure and types for chat communication." alt="" coords="465,79,647,104"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="681,33,594,75,591,70,679,28"/>
+<area shape="poly" id="edge12_Node000012_Node000005" title=" " alt="" coords="540,106,477,147,474,142,537,102"/>
+<area shape="poly" id="edge13_Node000012_Node000006" title=" " alt="" coords="609,101,840,151,839,156,608,107"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="517,152,595,177"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="559,104,559,138,553,138,553,104"/>
+</map>

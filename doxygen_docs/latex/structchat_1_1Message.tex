@@ -1,0 +1,137 @@
+\doxysection{chat\+::Message Struct Reference}
+\hypertarget{structchat_1_1Message}{}\label{structchat_1_1Message}\index{chat::Message@{chat::Message}}
+
+
+Represents a chat message.  
+
+
+
+
+{\ttfamily \#include $<$message.\+hpp$>$}
+
+
+
+Collaboration diagram for chat\+::Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{structchat_1_1Message__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structchat_1_1Message_a5ec6a4f537482f7b5d90ba73036e4fcb}{serialize}} () const
+\begin{DoxyCompactList}\small\item\em Serializes the \doxylink{structchat_1_1Message}{Message} object to a JSON string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structchat_1_1Message}{Message}} \mbox{\hyperlink{structchat_1_1Message_a939aa6d8ed74e2d2d140d7247c7cf251}{deserialize}} (const std\+::string \&json\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Deserializes a \doxylink{structchat_1_1Message}{Message} object from a JSON string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{Message\+Type}} \mbox{\hyperlink{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9}{type}}
+\item 
+std\+::string \mbox{\hyperlink{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456}{sender}}
+\item 
+std\+::string \mbox{\hyperlink{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86}{recipient}}
+\item 
+std\+::string \mbox{\hyperlink{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0}{content}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8}{users}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a chat message. 
+
+This structure is used for communication between the client and server. It can be serialized to and deserialized from JSON. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structchat_1_1Message_a939aa6d8ed74e2d2d140d7247c7cf251}\label{structchat_1_1Message_a939aa6d8ed74e2d2d140d7247c7cf251} 
+\index{chat::Message@{chat::Message}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structchat_1_1Message}{Message}} chat\+::\+Message\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{json\+\_\+str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Deserializes a \doxylink{structchat_1_1Message}{Message} object from a JSON string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+\_\+str} & The JSON string to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{structchat_1_1Message}{Message} object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structchat_1_1Message_a939aa6d8ed74e2d2d140d7247c7cf251_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structchat_1_1Message_a5ec6a4f537482f7b5d90ba73036e4fcb}\label{structchat_1_1Message_a5ec6a4f537482f7b5d90ba73036e4fcb} 
+\index{chat::Message@{chat::Message}!serialize@{serialize}}
+\index{serialize@{serialize}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily std\+::string chat\+::\+Message\+::serialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serializes the \doxylink{structchat_1_1Message}{Message} object to a JSON string. 
+
+\begin{DoxyReturn}{Returns}
+A JSON string representation of the message. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structchat_1_1Message_a5ec6a4f537482f7b5d90ba73036e4fcb_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0}\label{structchat_1_1Message_aab921fdd3030c1d394087abaf825bdc0} 
+\index{chat::Message@{chat::Message}!content@{content}}
+\index{content@{content}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{content}{content}}
+{\footnotesize\ttfamily std\+::string chat\+::\+Message\+::content}
+
+The content of the message. \Hypertarget{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86}\label{structchat_1_1Message_ae174e3fbaf77f19a193fd311179f7f86} 
+\index{chat::Message@{chat::Message}!recipient@{recipient}}
+\index{recipient@{recipient}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{recipient}{recipient}}
+{\footnotesize\ttfamily std\+::string chat\+::\+Message\+::recipient}
+
+The username of the message recipient (if applicable). \Hypertarget{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456}\label{structchat_1_1Message_a05ac8aa8d465e2a2b74aec6cb8d50456} 
+\index{chat::Message@{chat::Message}!sender@{sender}}
+\index{sender@{sender}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{sender}{sender}}
+{\footnotesize\ttfamily std\+::string chat\+::\+Message\+::sender}
+
+The username of the message sender. \Hypertarget{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9}\label{structchat_1_1Message_a9cd553921d8c76af4b2141a1417f2cb9} 
+\index{chat::Message@{chat::Message}!type@{type}}
+\index{type@{type}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacechat_ad6792c32ee9e0931967e81e5520aa237}{Message\+Type}} chat\+::\+Message\+::type}
+
+The type of the message. \Hypertarget{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8}\label{structchat_1_1Message_a1ce26dd79cebecb604367ab9a58a35c8} 
+\index{chat::Message@{chat::Message}!users@{users}}
+\index{users@{users}!chat::Message@{chat::Message}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ chat\+::\+Message\+::users}
+
+A list of usernames (used for LIST responses). 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\mbox{\hyperlink{message_8hpp}{message.\+hpp}}\end{DoxyCompactItemize}

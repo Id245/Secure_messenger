@@ -1,0 +1,11 @@
+<map id="ChatClient::show_user_selection_screen" name="ChatClient::show_user_selection_screen">
+<area shape="rect" id="Node000001" title="Displays the user selection screen." alt="" coords="5,27,172,67"/>
+<area shape="rect" id="Node000002" href="$classChatClient.html#a9f131fab526395621d8e78dbf78148a7" title="Prints the header for the chat application to the console." alt="" coords="220,5,400,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,34,206,29,207,34,172,39"/>
+<area shape="rect" id="Node000004" href="$classChatClient.html#ace42ce168ab039d2ccd584f3fd2aa1ab" title="Requests the current list of users from the server." alt="" coords="237,55,383,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,55,224,62,223,67,172,60"/>
+<area shape="rect" id="Node000003" href="$classChatClient.html#ab33e117990e309c5a633b79ff9c4bab9" title="Clears the terminal screen." alt="" coords="448,5,628,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,15,434,15,434,21,400,21"/>
+<area shape="rect" id="Node000005" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="449,63,627,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="384,73,435,73,435,78,384,78"/>
+</map>

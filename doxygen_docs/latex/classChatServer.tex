@@ -1,0 +1,262 @@
+\doxysection{Chat\+Server Class Reference}
+\hypertarget{classChatServer}{}\label{classChatServer}\index{ChatServer@{ChatServer}}
+
+
+Collaboration diagram for Chat\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classChatServer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChatServer_ae6693e28e4b17889d51f600b56c558fe}{Chat\+Server}} (asio\+::io\+\_\+context \&io\+\_\+context, unsigned short port)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classChatServer}{Chat\+Server} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatServer_ace37b9ad22031a3921f3dff7ee703c4f}{start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the chat server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classChatServer_a0bb044000e41a0407b6b7548be3fe494}{accept\+\_\+connection}} ()
+\begin{DoxyCompactList}\small\item\em Accepts a new client connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatServer_adeddcfe1015e90a30ca4fbd1afa7f91d}{handle\+\_\+register}} (std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$ ssl\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em Handles the registration process for a new client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatServer_a262415ba28a53a7b8dfb6ee20a420166}{listen\+\_\+for\+\_\+messages}} (std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$ ssl\+\_\+socket, const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Listens for messages from a specific client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatServer_ae85a5f8b0cdc1563adbe4f1505d744cb}{broadcast\+\_\+user\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em Broadcasts the updated user list to all connected clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+asio\+::io\+\_\+context \& \mbox{\hyperlink{classChatServer_a9434e442a268b9a5e280f1691e2c4b0d}{io\+\_\+context\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boost.\+Asio I/O context. \end{DoxyCompactList}\item 
+ssl\+::context \mbox{\hyperlink{classChatServer_aae9b8cd1e0a01dc4f4b1a6704918f573}{ssl\+\_\+context\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boost.\+Asio SSL context. \end{DoxyCompactList}\item 
+tcp\+::acceptor \mbox{\hyperlink{classChatServer_a06397186f64a71e7576a1f59fd12029f}{acceptor\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boost.\+Asio TCP acceptor for incoming connections. \end{DoxyCompactList}\item 
+unsigned short \mbox{\hyperlink{classChatServer_ad81a1f7eec844840a3bc063955c30560}{port\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Port number the server is listening on. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$ $>$ \mbox{\hyperlink{classChatServer_a7f1928e460947a291a7ad151f50a4b8a}{user\+\_\+connections\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Map of connected users and their SSL sockets. \end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classChatServer_a4bd547825c0d3f140586206d9696b503}{users\+\_\+mutex\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Mutex to protect access to user\+\_\+connections\+\_\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classChatServer_ae6693e28e4b17889d51f600b56c558fe}\label{classChatServer_ae6693e28e4b17889d51f600b56c558fe} 
+\index{ChatServer@{ChatServer}!ChatServer@{ChatServer}}
+\index{ChatServer@{ChatServer}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{ChatServer()}{ChatServer()}}
+{\footnotesize\ttfamily Chat\+Server\+::\+Chat\+Server (\begin{DoxyParamCaption}\item[{asio\+::io\+\_\+context \&}]{io\+\_\+context,  }\item[{unsigned short}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{classChatServer}{Chat\+Server} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io\+\_\+context} & The Boost.\+Asio I/O context. \\
+\hline
+{\em port} & The port number for the server to listen on. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classChatServer_a0bb044000e41a0407b6b7548be3fe494}\label{classChatServer_a0bb044000e41a0407b6b7548be3fe494} 
+\index{ChatServer@{ChatServer}!accept\_connection@{accept\_connection}}
+\index{accept\_connection@{accept\_connection}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{accept\_connection()}{accept\_connection()}}
+{\footnotesize\ttfamily void Chat\+Server\+::accept\+\_\+connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Accepts a new client connection. 
+
+Asynchronously waits for a new connection and initiates the SSL handshake. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_a0bb044000e41a0407b6b7548be3fe494_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_a0bb044000e41a0407b6b7548be3fe494_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatServer_ae85a5f8b0cdc1563adbe4f1505d744cb}\label{classChatServer_ae85a5f8b0cdc1563adbe4f1505d744cb} 
+\index{ChatServer@{ChatServer}!broadcast\_user\_list@{broadcast\_user\_list}}
+\index{broadcast\_user\_list@{broadcast\_user\_list}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{broadcast\_user\_list()}{broadcast\_user\_list()}}
+{\footnotesize\ttfamily void Chat\+Server\+::broadcast\+\_\+user\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Broadcasts the updated user list to all connected clients. 
+
+Creates a {\ttfamily LIST} message containing all currently registered usernames and sends it to every connected client. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_ae85a5f8b0cdc1563adbe4f1505d744cb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatServer_adeddcfe1015e90a30ca4fbd1afa7f91d}\label{classChatServer_adeddcfe1015e90a30ca4fbd1afa7f91d} 
+\index{ChatServer@{ChatServer}!handle\_register@{handle\_register}}
+\index{handle\_register@{handle\_register}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{handle\_register()}{handle\_register()}}
+{\footnotesize\ttfamily void Chat\+Server\+::handle\+\_\+register (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$}]{ssl\+\_\+socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the registration process for a new client. 
+
+Reads the registration message from the client, checks for username availability, and adds the user to the list of connected users. 
+\begin{DoxyParams}{Parameters}
+{\em ssl\+\_\+socket} & The SSL socket of the newly connected client. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_adeddcfe1015e90a30ca4fbd1afa7f91d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_adeddcfe1015e90a30ca4fbd1afa7f91d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatServer_a262415ba28a53a7b8dfb6ee20a420166}\label{classChatServer_a262415ba28a53a7b8dfb6ee20a420166} 
+\index{ChatServer@{ChatServer}!listen\_for\_messages@{listen\_for\_messages}}
+\index{listen\_for\_messages@{listen\_for\_messages}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{listen\_for\_messages()}{listen\_for\_messages()}}
+{\footnotesize\ttfamily void Chat\+Server\+::listen\+\_\+for\+\_\+messages (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ ssl\+::stream$<$ tcp\+::socket $>$ $>$}]{ssl\+\_\+socket,  }\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Listens for messages from a specific client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ssl\+\_\+socket} & The SSL socket of the client. \\
+\hline
+{\em username} & The username of the client.\\
+\hline
+\end{DoxyParams}
+Asynchronously reads messages from the client. Handles {\ttfamily LIST} requests by sending the current user list and {\ttfamily MESSAGE} requests by forwarding the message to the intended recipient. Also handles client disconnection. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_a262415ba28a53a7b8dfb6ee20a420166_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classChatServer_ace37b9ad22031a3921f3dff7ee703c4f}\label{classChatServer_ace37b9ad22031a3921f3dff7ee703c4f} 
+\index{ChatServer@{ChatServer}!start@{start}}
+\index{start@{start}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Chat\+Server\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Starts the chat server. 
+
+Begins accepting incoming client connections. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classChatServer_ace37b9ad22031a3921f3dff7ee703c4f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classChatServer_ace37b9ad22031a3921f3dff7ee703c4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classChatServer_a06397186f64a71e7576a1f59fd12029f}\label{classChatServer_a06397186f64a71e7576a1f59fd12029f} 
+\index{ChatServer@{ChatServer}!acceptor\_@{acceptor\_}}
+\index{acceptor\_@{acceptor\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{acceptor\_}{acceptor\_}}
+{\footnotesize\ttfamily tcp\+::acceptor Chat\+Server\+::acceptor\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boost.\+Asio TCP acceptor for incoming connections. 
+
+\Hypertarget{classChatServer_a9434e442a268b9a5e280f1691e2c4b0d}\label{classChatServer_a9434e442a268b9a5e280f1691e2c4b0d} 
+\index{ChatServer@{ChatServer}!io\_context\_@{io\_context\_}}
+\index{io\_context\_@{io\_context\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{io\_context\_}{io\_context\_}}
+{\footnotesize\ttfamily asio\+::io\+\_\+context\& Chat\+Server\+::io\+\_\+context\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boost.\+Asio I/O context. 
+
+\Hypertarget{classChatServer_ad81a1f7eec844840a3bc063955c30560}\label{classChatServer_ad81a1f7eec844840a3bc063955c30560} 
+\index{ChatServer@{ChatServer}!port\_@{port\_}}
+\index{port\_@{port\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{port\_}{port\_}}
+{\footnotesize\ttfamily unsigned short Chat\+Server\+::port\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Port number the server is listening on. 
+
+\Hypertarget{classChatServer_aae9b8cd1e0a01dc4f4b1a6704918f573}\label{classChatServer_aae9b8cd1e0a01dc4f4b1a6704918f573} 
+\index{ChatServer@{ChatServer}!ssl\_context\_@{ssl\_context\_}}
+\index{ssl\_context\_@{ssl\_context\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{ssl\_context\_}{ssl\_context\_}}
+{\footnotesize\ttfamily ssl\+::context Chat\+Server\+::ssl\+\_\+context\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boost.\+Asio SSL context. 
+
+\Hypertarget{classChatServer_a7f1928e460947a291a7ad151f50a4b8a}\label{classChatServer_a7f1928e460947a291a7ad151f50a4b8a} 
+\index{ChatServer@{ChatServer}!user\_connections\_@{user\_connections\_}}
+\index{user\_connections\_@{user\_connections\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{user\_connections\_}{user\_connections\_}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::shared\+\_\+ptr$<$ssl\+::stream$<$tcp\+::socket$>$ $>$ $>$ Chat\+Server\+::user\+\_\+connections\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map of connected users and their SSL sockets. 
+
+\Hypertarget{classChatServer_a4bd547825c0d3f140586206d9696b503}\label{classChatServer_a4bd547825c0d3f140586206d9696b503} 
+\index{ChatServer@{ChatServer}!users\_mutex\_@{users\_mutex\_}}
+\index{users\_mutex\_@{users\_mutex\_}!ChatServer@{ChatServer}}
+\doxysubsubsection{\texorpdfstring{users\_mutex\_}{users\_mutex\_}}
+{\footnotesize\ttfamily std\+::mutex Chat\+Server\+::users\+\_\+mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mutex to protect access to user\+\_\+connections\+\_\+. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/\mbox{\hyperlink{server_2main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

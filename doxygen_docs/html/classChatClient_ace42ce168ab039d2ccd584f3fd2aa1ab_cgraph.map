@@ -1,0 +1,5 @@
+<map id="ChatClient::request_user_list" name="ChatClient::request_user_list">
+<area shape="rect" id="Node000001" title="Requests the current list of users from the server." alt="" coords="5,5,152,45"/>
+<area shape="rect" id="Node000002" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="200,13,379,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,23,186,23,186,28,152,28"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="ChatServer::handle_register" name="ChatServer::handle_register">
+<area shape="rect" id="Node000001" title="Handles the registration process for a new client." alt="" coords="481,29,628,69"/>
+<area shape="rect" id="Node000002" href="$classChatServer.html#a0bb044000e41a0407b6b7548be3fe494" title="Accepts a new client connection." alt="" coords="288,29,433,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="467,52,434,52,434,47,467,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="392,17,381,11,361,8,343,10,332,15,328,21,330,28,325,30,323,20,329,11,342,5,361,3,383,6,395,13"/>
+<area shape="rect" id="Node000003" href="$classChatServer.html#ace37b9ad22031a3921f3dff7ee703c4f" title="Starts the chat server." alt="" coords="108,37,240,62"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="274,52,241,52,241,47,274,47"/>
+<area shape="rect" id="Node000004" href="$server_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function for the chat server." alt="" coords="5,37,60,62"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="94,52,60,52,60,47,94,47"/>
+</map>

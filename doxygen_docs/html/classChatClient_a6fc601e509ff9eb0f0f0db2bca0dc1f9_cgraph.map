@@ -1,0 +1,13 @@
+<map id="ChatClient::start" name="ChatClient::start">
+<area shape="rect" id="Node000001" title="Starts the chat client." alt="" coords="5,35,133,60"/>
+<area shape="rect" id="Node000002" href="$classChatClient.html#a2f636eb6e04c94fc9481ec51132e0ca0" title="Main loop for reading messages from the server." alt="" coords="181,35,344,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,45,168,45,168,50,134,50"/>
+<area shape="rect" id="Node000003" href="$structchat_1_1Message.html#a939aa6d8ed74e2d2d140d7247c7cf251" title="Deserializes a Message object from a JSON string." alt="" coords="392,5,587,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="344,34,378,30,379,35,345,39"/>
+<area shape="rect" id="Node000004" href="$classChatClient.html#aceb2e3089705fcdd4981bdb2f0747401" title="Processes a received message from the server." alt="" coords="415,55,563,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="345,55,402,62,401,67,344,60"/>
+<area shape="rect" id="Node000005" href="$classChatClient.html#a9f131fab526395621d8e78dbf78148a7" title="Prints the header for the chat application to the console." alt="" coords="635,63,815,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="564,73,620,73,620,78,564,78"/>
+<area shape="rect" id="Node000006" href="$classChatClient.html#ab33e117990e309c5a633b79ff9c4bab9" title="Clears the terminal screen." alt="" coords="863,63,1043,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="815,73,849,73,849,78,815,78"/>
+</map>

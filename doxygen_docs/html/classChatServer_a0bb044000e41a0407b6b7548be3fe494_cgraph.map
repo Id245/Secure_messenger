@@ -1,0 +1,10 @@
+<map id="ChatServer::accept_connection" name="ChatServer::accept_connection">
+<area shape="rect" id="Node000001" title="Accepts a new client connection." alt="" coords="5,29,151,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="42,30,40,20,45,11,58,5,78,3,101,6,113,13,110,17,99,11,78,8,60,10,49,15,45,21,47,28"/>
+<area shape="rect" id="Node000002" href="$classChatServer.html#adeddcfe1015e90a30ca4fbd1afa7f91d" title="Handles the registration process for a new client." alt="" coords="199,29,345,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="151,47,185,47,185,52,151,52"/>
+<area shape="rect" id="Node000003" href="$structchat_1_1Message.html#a939aa6d8ed74e2d2d140d7247c7cf251" title="Deserializes a Message object from a JSON string." alt="" coords="393,11,588,37"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="346,38,379,34,380,40,346,43"/>
+<area shape="rect" id="Node000004" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="401,61,580,86"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="346,55,388,59,387,65,346,60"/>
+</map>

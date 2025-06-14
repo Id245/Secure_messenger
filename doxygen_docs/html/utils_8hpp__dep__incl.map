@@ -1,0 +1,9 @@
+<map id="common/utils.hpp" name="common/utils.hpp">
+<area shape="rect" id="Node000001" title="Provides utility functions for the chat application." alt="" coords="154,5,293,31"/>
+<area shape="rect" id="Node000002" href="$server_2main_8cpp.html" title="Server application for the secure chat." alt="" coords="5,79,132,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,39,95,81,93,76,185,34"/>
+<area shape="rect" id="Node000003" href="$test__all_8cpp.html" title="Contains all unit tests for the chat application." alt="" coords="157,79,290,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,44,226,79,221,79,221,44"/>
+<area shape="rect" id="Node000004" href="$test__message_8cpp.html" title="Contains unit tests specifically for the Message class and related utilities." alt="" coords="314,79,490,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="265,33,374,76,372,81,264,38"/>
+</map>

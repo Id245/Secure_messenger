@@ -1,0 +1,11 @@
+<map id="ChatClient::process_message" name="ChatClient::process_message">
+<area shape="rect" id="Node000001" title="Processes a received message from the server." alt="" coords="661,5,809,45"/>
+<area shape="rect" id="Node000002" href="$classChatClient.html#a2f636eb6e04c94fc9481ec51132e0ca0" title="Main loop for reading messages from the server." alt="" coords="451,13,613,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="647,28,613,28,613,23,647,23"/>
+<area shape="rect" id="Node000003" href="$classChatClient.html#a6fc601e509ff9eb0f0f0db2bca0dc1f9" title="Starts the chat client." alt="" coords="275,13,403,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,28,403,28,403,23,437,23"/>
+<area shape="rect" id="Node000004" href="$classChatClient.html#ae46cfdb49dd12ba7290477dc0fe33c5b" title="Runs the main loop of the client." alt="" coords="108,13,227,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="261,28,227,28,227,23,261,23"/>
+<area shape="rect" id="Node000005" href="$client_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function for the chat client." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

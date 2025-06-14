@@ -1,0 +1,7 @@
+<map id="file_exists" name="file_exists">
+<area shape="rect" id="Node000001" title="Проверяет, существует ли файл." alt="" coords="152,31,240,56"/>
+<area shape="rect" id="Node000002" href="$server_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function for the chat server." alt="" coords="27,5,82,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,36,82,25,83,20,139,30"/>
+<area shape="rect" id="Node000003" href="$test__all_8cpp.html#a53c5c5dfdb0e92ee0df604cf26ded36b" title="Test suite for utility functions." alt="" coords="5,55,104,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,56,105,62,104,56,138,50"/>
+</map>

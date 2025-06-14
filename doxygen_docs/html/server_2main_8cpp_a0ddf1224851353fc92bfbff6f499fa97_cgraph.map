@@ -1,0 +1,16 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main function for the chat server." alt="" coords="5,31,60,56"/>
+<area shape="rect" id="Node000002" href="$utils_8hpp.html#a9f917086ef8192ac14766ac7e9e257b3" title="Проверяет, существует ли файл." alt="" coords="130,5,218,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,36,116,26,117,31,61,41"/>
+<area shape="rect" id="Node000003" href="$classChatServer.html#ace37b9ad22031a3921f3dff7ee703c4f" title="Starts the chat server." alt="" coords="108,55,240,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="61,45,95,51,94,56,60,50"/>
+<area shape="rect" id="Node000004" href="$classChatServer.html#a0bb044000e41a0407b6b7548be3fe494" title="Accepts a new client connection." alt="" coords="288,47,433,87"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="240,65,274,65,274,70,240,70"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="325,48,323,38,329,29,342,23,361,21,383,24,395,31,392,35,381,29,361,26,343,28,332,33,328,39,330,46"/>
+<area shape="rect" id="Node000005" href="$classChatServer.html#adeddcfe1015e90a30ca4fbd1afa7f91d" title="Handles the registration process for a new client." alt="" coords="481,47,628,87"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="434,65,468,65,468,70,434,70"/>
+<area shape="rect" id="Node000006" href="$structchat_1_1Message.html#a939aa6d8ed74e2d2d140d7247c7cf251" title="Deserializes a Message object from a JSON string." alt="" coords="676,29,871,55"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="628,56,662,52,663,58,629,61"/>
+<area shape="rect" id="Node000007" href="$structchat_1_1Message.html#a5ec6a4f537482f7b5d90ba73036e4fcb" title="Serializes the Message object to a JSON string." alt="" coords="684,79,863,104"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="629,73,671,77,670,83,628,78"/>
+</map>
